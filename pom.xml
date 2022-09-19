@@ -466,15 +466,24 @@
         </plugins>
     </reporting>
 
-    <modules>
-        <module>gert-network-common</module>
-        <module>gert-network-data</module>
-        <module>gert-network-service</module>
-        <module>gert-network-api</module>
-        <module>gert-network-webapp</module>
-        <module>gert-network-datasource</module>
-    </modules>
 
+    <profiles>
+        <profile>
+            <id>default-build</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <modules>
+                <module>gert-network-common</module>
+                <module>gert-network-data</module>
+                <module>gert-network-datasource</module>
+                <module>gert-network-service</module>
+                <module>gert-network-api</module>
+                <module>gert-network-webapp</module>
+            </modules>
+        </profile>
+
+    </profiles>
 
 
 </project>
