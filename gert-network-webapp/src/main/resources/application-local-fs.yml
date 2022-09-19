@@ -1,0 +1,30 @@
+management:
+  server:
+    port: ${SERVER_MGMT_PORT:8081}
+
+spring:
+  datasource:
+    driver-class-name: ${application.resources.database.h2.driver}
+    url: ${application.resources.database.h2.datasource-url}
+    username: ${application.resources.database.h2.username}
+    password: ${application.resources.database.h2.password}
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      connection-timeout: 60000
+  flyway:
+    enabled: false
+    schemas: ${application.resources.database.name}
+    url: ${application.resources.database.h2.jdbc-url}
+    user: ${application.resources.database.h2.username}
+    password: ${application.resources.database.h2.password}
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        show-sql: true
+        format-sql: true

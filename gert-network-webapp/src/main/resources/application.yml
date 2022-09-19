@@ -1,0 +1,92 @@
+server:
+  port: ${SERVER_HTTP_PORT:8080}
+
+management:
+  info:
+    git:
+      enabled: true
+      mode: full
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+        allowed-headers: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: false
+    info:
+      enabled: true
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-details: always
+    beans:
+      enabled: true
+    env:
+      enabled: true
+    loggers:
+      enabled: true
+
+application:
+  name: ${SPRING_APP_NAME:gert-network}
+  resources:
+    database:
+      name: ${DATABASE_NAME:gert_network}
+      mysql:
+        driver: com.mysql.cj.jdbc.Driver
+        schema-name: ${application.resources.database.name}
+        jdbc-url: ${JDBC_URL:jdbc:mysql://${DATABASE_HOST:localhost}:${DATABASE_PORT:3306}}
+        datasource-url: ${application.resources.database.mysql.jdbc-url}/${application.resources.database.mysql.schema-name}?allowPublicKeyRetrieval=true&useSSL=false
+        username: ${DATABASE_USER:root}
+        password: ${DATABASE_PASSWORD:R00t@Mysql}
+      h2:
+        driver: org.h2.Driver
+        jdbc-url: ${JDBC_URL:jdbc:h2:file:${user.home}/.fire-gert/data}/${application.resources.database.name}
+        datasource-url: ${application.resources.database.h2.jdbc-url}
+        username: ${DATABASE_USER:sa}
+        password: ${DATABASE_PASSWORD:test}
+
+
+spring:
+  application:
+    name: ${application.name}
+  datasource:
+    driver-class-name: ${application.resources.database.mysql.driver}
+    url: ${application.resources.database.mysql.datasource-url}
+    username: ${application.resources.database.mysql.username}
+    password: ${application.resources.database.mysql.password}
+    hikari:
+      maximum-pool-size: 3
+      minimum-idle: 1
+      pool-name: ${spring.application.name}-connection-pool
+      connection-timeout: 60000
+  data:
+    jpa:
+      repositories:
+        enabled: true
+  jpa:
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+        show-sql: false
+        format-sql: false
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    create-schemas: true
+    fail-on-missing-locations: true
+    schemas: ${application.resources.database.mysql.schema-name}
+    url: ${application.resources.database.mysql.jdbc-url}
+    user: ${application.resources.database.mysql.username}
+    password: ${application.resources.database.mysql.password}
