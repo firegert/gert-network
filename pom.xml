@@ -16,8 +16,8 @@
         <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <spring-boot.version>2.7.1</spring-boot.version>
-        <spring-cloud.version>2021.0.2</spring-cloud.version>
+        <spring-boot.version>2.7.3</spring-boot.version>
+        <spring-cloud.version>2021.0.4</spring-cloud.version>
         <lombok.version>1.18.22</lombok.version>
         <mapstruct.version>1.4.2.Final</mapstruct.version>
         <querydsl.version>5.0.0</querydsl.version>
