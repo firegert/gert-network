@@ -49,7 +49,7 @@ application:
         password: ${DATABASE_PASSWORD:R00t@Mysql}
       h2:
         driver: org.h2.Driver
-        jdbc-url: ${JDBC_URL:jdbc:h2:file:${user.home}/.fire-gert/data}/${application.resources.database.name}
+        jdbc-url: ${JDBC_URL:jdbc:h2:file:${FIREGERT_DATA_PATH:${user.home}/fire-gert/data}}/${application.resources.database.name}
         datasource-url: ${application.resources.database.h2.jdbc-url}
         username: ${DATABASE_USER:sa}
         password: ${DATABASE_PASSWORD:test}
