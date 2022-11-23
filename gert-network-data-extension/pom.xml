@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>gert-network-datasource</artifactId>
+    <artifactId>gert-network-data-extension</artifactId>
     <packaging>pom</packaging>
 
 
@@ -38,8 +38,8 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <modules>
-                <module>gert-network-datasource-mysql</module>
-                <module>gert-network-datasource-filesystem</module>
+                <module>gert-network-data-extension-mysql</module>
+                <module>gert-network-data-extension-h2</module>
             </modules>
         </profile>
         <profile>
@@ -48,7 +48,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <modules>
-                <module>gert-network-datasource-filesystem</module>
+                <module>gert-network-data-extension-h2</module>
             </modules>
         </profile>
         <profile>
@@ -57,7 +57,7 @@
                 <activeByDefault>false</activeByDefault>
             </activation>
             <modules>
-                <module>gert-network-datasource-mysql</module>
+                <module>gert-network-data-extension-mysql</module>
             </modules>
         </profile>
     </profiles>

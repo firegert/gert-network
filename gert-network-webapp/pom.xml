@@ -109,20 +109,20 @@
 
     <profiles>
         <profile>
-            <id>ds-fs</id>
+            <id>ds-h2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
             <dependencies>
                 <dependency>
                     <groupId>${project.groupId}</groupId>
-                    <artifactId>gert-network-datasource-filesystem</artifactId>
+                    <artifactId>gert-network-data-extension-h2</artifactId>
                     <version>${project.version}</version>
                     <scope>runtime</scope>
                 </dependency>
             </dependencies>
             <build>
-                <finalName>${project.artifactId}-fs-${project.version}</finalName>
+                <finalName>${project.artifactId}-h2-${project.version}</finalName>
             </build>
         </profile>
         <profile>
@@ -133,7 +133,7 @@
             <dependencies>
                 <dependency>
                     <groupId>${project.groupId}</groupId>
-                    <artifactId>gert-network-datasource-mysql</artifactId>
+                    <artifactId>gert-network-data-extension-mysql</artifactId>
                     <version>${project.version}</version>
                     <scope>runtime</scope>
                 </dependency>
@@ -144,7 +144,7 @@
         </profile>
 
         <profile>
-            <id>native</id>
+            <id>native-h2</id>
             <activation>
                 <activeByDefault>false</activeByDefault>
             </activation>
@@ -154,7 +154,7 @@
             <dependencies>
                 <dependency>
                     <groupId>${project.groupId}</groupId>
-                    <artifactId>gert-network-datasource-filesystem</artifactId>
+                    <artifactId>gert-network-data-extension-h2</artifactId>
                     <version>${project.version}</version>
                     <scope>runtime</scope>
                 </dependency>
