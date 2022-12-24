@@ -7,10 +7,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>gert-network-service</artifactId>
+    <artifactId>gert-network-core</artifactId>
     <packaging>jar</packaging>
 
-    <name>gert-network-service</name>
+    <name>gert-network-core</name>
 
     <dependencies>
         <dependency>
@@ -21,11 +21,6 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>gert-network-model</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>gert-network-core</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>
