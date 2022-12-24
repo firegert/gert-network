@@ -7,9 +7,9 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>gert-network-common</artifactId>
+    <artifactId>gert-network-model</artifactId>
     <packaging>jar</packaging>
 
-    <name>gert-network-common</name>
+    <name>gert-network-model</name>
 
 </project>

@@ -1,0 +1,52 @@
+
+server:
+  port: ${SERVER_HTTP_PORT:8080}
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+
+management:
+  server:
+    port: ${SERVER_MGMT_PORT:8081}
+  info:
+    git:
+      enabled: true
+      mode: full
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+        allowed-headers: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    restart:
+      enabled: false
+    info:
+      enabled: true
+    health:
+      enabled: true
+      probes:
+        enabled: true
+      show-details: always
+    beans:
+      enabled: true
+    env:
+      enabled: true
+    loggers:
+      enabled: true
+  metrics:
+    distribution:
+      percentiles-histogram:
+        http:
+          server:
+            requests: true
+  tracing:
+    sampling:
+      probability: 1.0
