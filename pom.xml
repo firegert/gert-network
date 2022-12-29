@@ -36,6 +36,7 @@
         <docker.image.title>task-manager</docker.image.title>
     </properties>
 
+
     <repositories>
         <repository>
             <id>spring-release</id>
